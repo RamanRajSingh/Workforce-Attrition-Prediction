@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="../static/icon/favicon.ico">
+</head>
+
+<body class="login-page">
+    <form class="login-form" method="POST" action="/login">
+        <h1 class="login-header">Login</h1>
+        <div class="input-container">
+            <input type="text" name="username" id="username" class="input" placeholder="Enter Username" required>
+            <input type="password" name="password" id="password" class="input" placeholder="Enter Password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+    </form>
+    <p class="log-sign">Don't have an account? <a href="/" class="log-sign-link">Sign up</a></p>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+</body>
+
+</html>

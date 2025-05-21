@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workforce Attrition Prediction</title>
+    <link rel="icon" href="../static/icon/favicon.ico">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body class="main">
+    <! Heading for the page -->
+        <h1 class="head">Workforce Attrition Prediction</h1>
+        <form class="form" method="POST" action="/Index" id="myForm" onsubmit="return attachSections()">
+
+            <! Essential Section of the page -->
+                <section class="first autoShow">
+                    <h1 class="special-button one">Employee Demographics</h1>
+                    <div class="input-container autoShow">
+                        <input type="text" name="employee_number" class="input1" placeholder="Enter Employee Number">
+                        <input type="text" name="employee_age" class="input1" placeholder="Enter Employee Age">
+                        <select name="gender" class="input1">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <select name="marital_status" class="input1">
+                            <option value="" class="input1">Select marital status</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                        <select name="education" class="input1">
+                            <option value="">Select Education</option>
+                            <option value="matric">10th passed / Matric</option>
+                            <option value="intermediate">12th passed / Intermediate</option>
+                            <option value="bachelor">Graduate</option>
+                            <option value="master">Post graduate</option>
+                            <option value="doctorate">Doctorate(Ph.D)</option>
+                        </select>
+                        <select name="education_field" class="input1">
+                            <option value="" class="input1">Select education field</option>
+                            <option value="life sciences" class="input1">Life sciences</option>
+                            <option value="medical" class="input1">Medical</option>
+                            <option value="marketing" class="input1">Marketing</option>
+                            <option value="technical degree" class="input1">Technical degree</option>
+                            <option value="human resources" class="input1">Human resources</option>
+                        </select>
+
+
+                    </div>
+                </section>
+                <section class="second autoShow">
+                    <h1 class="special-button">Work & Performance History</h1>
+                    <div class="input-container input2 autoShow">
+                        <input type="text" name="total_working_years" class="input2"
+                            placeholder="Enter Total Working Years">
+                        <input type="text" name="companies_worked" class="input2"
+                            placeholder="Enter Number of Companies Worked">
+                        <input type="text" name="performance_rating" class="input2"
+                            placeholder="Enter Performance Rating">
+                        <input type="text" name="training_times_last_year" class="input2"
+                            placeholder="Enter Training Times Last Year">
+                    </div>
+                </section>
+                <section class="third autoShow">
+                    <h1 class="special-button">Workplace Behavior &
+                        Conditions</h1>
+                    <div class="input-container input3 autoShow">
+                        <input type="text" name="distance_from_home" class="input3"
+                            placeholder="Enter Distance From Home">
+                        <select name="overtime" class="input3">
+                            <option value="" class="input3">Select overtime</option>
+                            <option value="yes" class="input3">Yes</option>
+                            <option value="no" class="input3">No</option>
+                        </select>
+
+                        <select name="business_travel" class="input3">
+                            <option value="" class="input3">Select business travel</option>
+                            <option value="non-travel" class="input3">Non-travel</option>
+                            <option value="travel_frequently" class="input3">Travel frequently</option>
+                            <option value="travel_rarely" class="input3">Travel rarely</option>
+                        </select>
+
+                    </div>
+                </section>
+
+                <! Optional Sections of the page -->
+                    <section class="fourth">
+                        <div class="head-container autoShow">
+                            <input type="checkbox" class="tick" id="jobCareerCheckbox" value="4" name="section"
+                                onchange="toggleInputs('input4'); updateCheckedSections();">
+                            <label for="jobCareerCheckbox" class="special-button option">Job and Career-related
+                                Factors</label>
+                        </div>
+                        <div class="input-container input4" style="display: none;">
+                            <select name="job_role" class="input4">
+                                <option value="" class="input1">Select job role</option>
+                                <option value="sales executive" class="input4">Sales executive</option>
+                                <option value="research scientist" class="input4">Research scientist</option>
+                                <option value="laboratory technician" class="input4">Laboratory technician</option>
+                                <option value="manufacturing director" class="input4">Manufacturing director</option>
+                                <option value="healthcare representative" class="input4">Healthcare representative
+                                </option>
+                                <option value="manager" class="input4">Manager</option>
+                                <option value="sales representative" class="input4">Sales representative</option>
+                                <option value="research director" class="input4">Research director</option>
+                                <option value="human resources" class="input4">Human resources</option>
+                            </select>
+                            <select name="job_level" class="input4">
+                                <option value="">Select job level</option>
+                                <option value="1">Entry Level</option>
+                                <option value="2">Junior Level</option>
+                                <option value="3">Mid Level</option>
+                                <option value="4">Senior Level</option>
+                                <option value="5">Executive / Managerial</option>
+                            </select>
+
+                            <select name="job_involvement" class="input4">
+                                <option value="">Select job involvement level</option>
+                                <option value="1">Low</option>
+                                <option value="2">Medium</option>
+                                <option value="3">High</option>
+                                <option value="4">Very High</option>
+                            </select>
+
+                            <select type="text" class="input4" name="department">
+                                <option value="" class="input1">Select department</option>
+                                <option value="sales" class="input4">Sales</option>
+                                <option value="research & development" class="input4">Research & Development</option>
+                                <option value="human resources" class="input4">Human Resources</option>
+                            </select>
+
+                            <input type="text" class="input4" name="years_at_company" placeholder="Years at Company">
+                            <input type="text" class="input4" name="years_in_role" placeholder="Years in Current Role">
+                            <input type="text" class="input4" name="years_with_manager"
+                                placeholder="Years with Current Manager">
+                            <input type="text" class="input4" name="years_since_last_promotion"
+                                placeholder="Enter Years Since Last Promotion">
+                        </div>
+                    </section>
+
+                    <section class="fifth autoShow">
+                        <div class="head-container">
+                            <input type="checkbox" class="tick" id="WorkEnvironmentandSatisfaction" value="5"
+                                name="section" onchange="toggleInputs('input5'); updateCheckedSections();">
+                            <label for="WorkEnvironmentandSatisfaction" class="special-button option">Work Environment
+                                and
+                                Satisfaction</label>
+                        </div>
+                        <div class="input-container input5" style="display: none;">
+                            <select name="work_life_balance" class="input5">
+                                <option value="">Select Work-Life Balance</option>
+                                <option value="1">Poor</option>
+                                <option value="2">Average</option>
+                                <option value="3">Good</option>
+                                <option value="4">Excellent</option>
+                            </select>
+                            <select name="job_satisfaction" class="input5">
+                                <option value="">Select Job Satisfaction</option>
+                                <option value="1">Very Dissatisfied</option>
+                                <option value="2">Dissatisfied</option>
+                                <option value="3">Satisfied</option>
+                                <option value="4">Very Satisfied</option>
+                            </select>
+
+                            <select name="environment_satisfaction" class="input5">
+                                <option value="">Select Environment Satisfaction</option>
+                                <option value="1">Poor</option>
+                                <option value="2">Fair</option>
+                                <option value="3">Good</option>
+                                <option value="4">Excellent</option>
+                            </select>
+
+                            <select name="relationship_satisfaction" class="input5">
+                                <option value="">Select Relationship Satisfaction</option>
+                                <option value="1">Poor</option>
+                                <option value="2">Average</option>
+                                <option value="3">Good</option>
+                                <option value="4">Excellent</option>
+                            </select>
+
+                        </div>
+                    </section>
+                    <section class="sixth autoShow">
+                        <div class="head-container">
+                            <input type="checkbox" class="tick" id="CompensationandBenefits" value="6" name="section"
+                                onchange="toggleInputs('input6'); updateCheckedSections();">
+                            <label for="CompensationandBenefits" class="special-button option">Compensation and
+                                Benefits</label>
+                        </div>
+                        <div class="input-container input6" style="display: none;">
+                            <input type="text" class="input6" name="monthly_income" placeholder="Enter Monthly Income">
+                            <input type="text" class="input6" name="salary_hike"
+                                placeholder="Enter percent Salary Hike">
+                            <input type="text" class="input6" name="stock_option_level"
+                                placeholder="Enter Stock Option Level">
+                        </div>
+                    </section>
+                    <!-- Hidden input to pass checked sections -->
+                    <input type="hidden" id="checkedSections" name="checked_sections">
+                    <! Button to submit entries of the page -->
+                        <button type="submit" class="submit_button autoShow">Predict</button>
+
+                        <script type="text/javascript" src="../static/script.js"></script>
+        </form>
+</body>
+
+</html>
